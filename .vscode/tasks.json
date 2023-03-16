@@ -1,0 +1,106 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "inputs": [
+        {
+            "id": "device",
+            "description": "Device Type (nrf52832, nrf52840)",
+            "default": "nrf52840",
+            "options": [
+                "nrf52832",
+                "nrf52840"
+            ],
+            "type": "pickString"
+        },
+        {
+            "id": "build",
+            "description": "Build Type (debug, release)",
+            "default": "debug",
+            "options": ["debug", "release"],
+            "type": "pickString"
+        },
+        {
+            "id": "jlinks",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "nrfjprog -i",
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "label": "JLinkExe",
+            "type": "process",
+            "command": "./jlink_commander.sh",
+            "args": [
+                "${input:jlinks}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/.vscode/scripts"
+            },
+            "problemMatcher": {
+                "base": "$gcc"
+            }
+        },
+        {
+            "label": "JLink RTT Logs",
+            "type": "process",
+            "command": "JLinkRTTClient",
+            "problemMatcher": {
+                "base": "$gcc"
+            }
+        },
+        {
+            "label": "build bootloader",
+            "type": "process",
+            "command": "./build_bootloader.sh",
+            "args": [
+                "${input:device}"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "${env:PATH}:${env:PYTHON_HOME}"
+                },
+                "cwd": "${workspaceFolder}/firmware/deploy"
+            },
+            "problemMatcher": {
+                "base": "$gcc"
+            }
+        },
+        {
+            "label": "build firmware",
+            "type": "process",
+            "command": "./build_firmware.sh",
+            "args": [
+                "${input:device}",
+                "${input:build}",
+            ],
+            "options": {
+                "env": {
+                    "PATH": "${env:PATH}:${env:PYTHON_HOME}"
+                },
+                "cwd": "${workspaceFolder}/firmware/deploy"
+            },
+            "problemMatcher": {
+                "base": "$gcc"
+            }
+        },
+        {
+            "label": "deploy",
+            "type": "process",
+            "command": "./deploy_firmware.sh",
+            "args": [
+                "${input:device}",
+                "${input:jlinks}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/firmware/deploy"
+            },
+            "problemMatcher": {
+                "base": "$gcc"
+            }
+        }
+    ]
+}

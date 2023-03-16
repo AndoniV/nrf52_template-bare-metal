@@ -1,0 +1,12 @@
+firmware/bootloader/build
+firmware/project/build
+bootloader_settings.hex
+project_merged.hex
+dfu_package.zip
+dfu_private.key
+dfu_public_key.c
+.vscode/.cortex-debug.peripherals.state.json
+.vscode/.cortex-debug.registers.state.json
+.vscode/configurationCache.log
+.vscode/dryrun.log
+.vscode/targets.log

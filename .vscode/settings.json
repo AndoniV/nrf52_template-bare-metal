@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "frame_ctr.h": "c",
+        "version.h": "c",
+        "functional": "c",
+        "nrf_pwr_mgmt.h": "c",
+        "compiler_abstraction.h": "c",
+        "sdk_config.h": "c",
+        "nrf_bootloader_app_start.h": "c",
+        "app_timer.h": "c",
+        "ble.h": "c"
+    }
+}

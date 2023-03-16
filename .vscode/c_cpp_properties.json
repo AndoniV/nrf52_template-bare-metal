@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "forcedInclude": [
+                "${env:TOOLCHAIN_HOME}/arm-none-eabi-gcc/include/stdint.h"
+            ],
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/firmware/nrf5_sdk/**"
+            ],
+            "defines": [
+                "__STATIC_INLINE=static inline"
+            ],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks"
+            ],
+            "compilerPath": "${env:TOOLCHAIN_HOME}/bin/arm-none-eabi-gcc",
+            "cStandard": "c99",
+            "intelliSenseMode": "gcc-arm",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

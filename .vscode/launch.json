@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "nrf52832 debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "nRF52832_xxAA",
+            "cwd": "${workspaceFolder}",
+            "interface": "swd",
+            "executable": "${workspaceFolder}/firmware/project/build/project.out",
+            "cpu": "cortex-m4",
+            "svdFile": "${workspaceFolder}/firmware/nrf5_sdk/modules/nrfx/mdk/nrf52.svd",
+            "swoConfig": {
+                "enabled": true,
+            },
+            "gdbPath": "/Users/andoni/dev/nrf52-tools/macos/gcc-arm-none-eabi/bin/arm-none-eabi-gdb"
+        },
+        {
+            "name": "nrf52840 debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "nRF52840_xxAA",
+            "cwd": "${workspaceFolder}",
+            "interface": "swd",
+            "executable": "${workspaceFolder}/firmware/project/build/project.out",
+            "cpu": "cortex-m4",
+            "svdFile": "${workspaceFolder}/firmware/nrf5_sdk/modules/nrfx/mdk/nrf52840.svd",
+            "swoConfig": {
+                "enabled": true,
+            },
+            "gdbPath": "/Users/andoni/dev/nrf52-tools/macos/gcc-arm-none-eabi/bin/arm-none-eabi-gdb"
+        }
+    ]
+}
