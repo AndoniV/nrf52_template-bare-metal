@@ -205,6 +205,7 @@ C_SOURCE_FILES += \
 C_SOURCE_FILES += \
         $(SRC_PATH)/main.c \
         $(SRC_PATH)/hal/board.c \
+        $(SRC_PATH)/hal/i2c.c \
         $(SRC_PATH)/ble/ble_if.c \
         $(SRC_PATH)/ble/proto_ble_profile.c \
         $(SRC_PATH)/app/app.c \
