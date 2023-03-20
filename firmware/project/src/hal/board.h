@@ -39,6 +39,10 @@ extern "C" {
 #define BOARD_BTN2_PIN                  (14)
 #define BOARD_BTN3_PIN                  (15)
 #define BOARD_BTN4_PIN                  (16)
+/** I2C bus */
+#define BOARD_I2C_INSTANCE              0
+#define BOARD_I2C_SCL                   (27)
+#define BOARD_I2C_SDA                   (26)
 #elif (CONFIG_TARGET_TYPE == CONFIG_TARGET_TYPE_NRF52840)
 /** LEDs */
 #define BOARD_LED1_PIN                  (13)
@@ -50,6 +54,10 @@ extern "C" {
 #define BOARD_BTN2_PIN                  (12)
 #define BOARD_BTN3_PIN                  (24)
 #define BOARD_BTN4_PIN                  (25)
+/** I2C bus */
+#define BOARD_I2C_INSTANCE              0
+#define BOARD_I2C_SCL                   (27)
+#define BOARD_I2C_SDA                   (26)
 #endif
 
 // DECLARATIONS ***************************************************************/

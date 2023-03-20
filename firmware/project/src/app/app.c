@@ -17,6 +17,7 @@
 #include "nrf_pwr_mgmt.h"
 #include "./version.h"
 #include "hal/board.h"
+#include "hal/i2c.h"
 #include "ble/ble_if.h"
 #include "app/app.h"
 #include "app/device.h"
@@ -58,6 +59,8 @@ void app_run()
 
     // Initialise common HAL modules
     ProtResult result = board_init();
+    APP_ERROR_CHECK((ret_code_t)result);
+    result = i2c_init();
     APP_ERROR_CHECK((ret_code_t)result);
     result = device_init();
     APP_ERROR_CHECK((ret_code_t)result);
